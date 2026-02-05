@@ -4,4 +4,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
+  server: {
+    host: "0.0.0.0",
+    port: 5173,
+    watch: {
+      usePolling: true, // Docker 環境需要 polling 來監聽檔案變化
+    },
+  },
 });
